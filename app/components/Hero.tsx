@@ -6,7 +6,7 @@ import { CriptoCoin } from '../models/CriptoCoin';
 import { ResponseObject } from '../models/Response';
 import CriptoLoader from './CriptoLoader';
 
-export function Hero() {
+export const Hero: React.FC = () => {
   const [cryptoData, setCryptoData] = useState<CriptoCoin[]>([]);
   const [loading, setLoading] = useState(true);
   const [timer, setTimer] = useState(10);
@@ -56,3 +56,4 @@ export function Hero() {
     </>
   )
 }
+

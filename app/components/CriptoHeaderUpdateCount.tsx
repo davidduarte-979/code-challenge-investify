@@ -1,4 +1,8 @@
-export default function CriptoHeaderUpdateCount({ timer }: { timer: number }) {
+interface CriptoHeaderUpdateCountProps {
+    timer: number;
+}
+
+const CriptoHeaderUpdateCount: React.FC<CriptoHeaderUpdateCountProps> = ({ timer }) => {
     return (
         <>
             <h1 className="mx-auto text-5xl font-semibold tracking-tight text-pretty text-white">Cripto Prices</h1>
@@ -6,3 +10,5 @@ export default function CriptoHeaderUpdateCount({ timer }: { timer: number }) {
         </>
     )
 }
+
+export default CriptoHeaderUpdateCount;

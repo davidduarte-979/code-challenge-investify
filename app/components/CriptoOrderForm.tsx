@@ -3,7 +3,11 @@ import { CriptoCoin } from "../models/CriptoCoin";
 import { Button } from "./Button";
 import { useEffect } from "react";
 
-export default function CriptoOrderForm({ data }: { data: CriptoCoin[] }) {
+interface CriptoOrderFormProps {
+    data: CriptoCoin[];
+}
+
+const CriptoOrderForm: React.FC<CriptoOrderFormProps> = ({ data }) => {
     const [usdAmount, setUsdAmount] = useState("");
     const [selectedSymbol, setSelectedSymbol] = useState("");
     const [error, setError] = useState("");
@@ -99,3 +103,5 @@ export default function CriptoOrderForm({ data }: { data: CriptoCoin[] }) {
         </>
     )
 }
+
+export default CriptoOrderForm;

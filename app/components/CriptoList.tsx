@@ -1,6 +1,10 @@
 import { CriptoCoin } from "../models/CriptoCoin";
 
-export default function CriptoList({ data }: { data: CriptoCoin[] }) {
+interface CriptoListProps {
+    data: CriptoCoin[];
+}
+
+const CriptoList: React.FC<CriptoListProps> = ({ data }) => {
     if (!data) return <div>No data available</div>;
 
     const sortedData = [...data].sort((a, b) => a.name.localeCompare(b.name));
@@ -18,3 +22,5 @@ export default function CriptoList({ data }: { data: CriptoCoin[] }) {
         </ul>
     )
 }
+
+export default CriptoList;
