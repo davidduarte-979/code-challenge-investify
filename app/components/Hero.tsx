@@ -12,34 +12,34 @@ export const Hero: React.FC = () => {
   const [timer, setTimer] = useState(10);
 
   useEffect(() => {
-    //let isMounted = true;
+    let isMounted = true;
 
     const fetchData = () => {
       setLoading(true);
       fetch('/api/crypto')
         .then(res => res.json())
         .then((response: ResponseObject<CriptoCoin[]>) => {
-          //if (isMounted) {
+          if (isMounted) {
             setCryptoData(response.data);
             setLoading(false);
             setTimer(10); // Reset timer after fetch
-          //}
+          }
         });
     };
 
     fetchData(); // Initial fetch
 
-    // const fetchInterval = setInterval(fetchData, 10000);
+    const fetchInterval = setInterval(fetchData, 10000);
 
-    // const timerInterval = setInterval(() => {
-    //   setTimer(prev => (prev > 0 ? prev - 1 : 10));
-    // }, 1000);
+    const timerInterval = setInterval(() => {
+      setTimer(prev => (prev > 0 ? prev - 1 : 10));
+    }, 1000);
 
-    // return () => {
-    //   isMounted = false;
-    //   clearInterval(fetchInterval);
-    //   clearInterval(timerInterval);
-    // };
+    return () => {
+      isMounted = false;
+      clearInterval(fetchInterval);
+      clearInterval(timerInterval);
+    };
   }, []);
 
   return (
