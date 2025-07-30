@@ -1,6 +1,6 @@
 import { useId } from 'react'
 
-interface HeroBackgroundProps extends React.ComponentPropsWithoutRef<'svg'> {}
+type HeroBackgroundProps = React.ComponentPropsWithoutRef<'svg'>;
 
 export const HeroBackground: React.FC<HeroBackgroundProps> = (props) => {
   const id = useId()
