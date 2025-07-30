@@ -52,7 +52,7 @@ const CriptoOrderForm: React.FC<CriptoOrderFormProps> = ({ data }) => {
 
     return (
         <>
-            <div className='flex gap-4 w-full items-center justify-center mb-4'>
+            <div className='flex flex-wrap gap-4 w-full items-center justify-center mb-4'>
                 <div className='flex items-center gap-4'>
                     <label className="text-sm/6 font-medium text-white">Buy</label>
                     <div className="flex items-center rounded-md px-3 outline-1 -outline-offset-1 outline-gray-300 focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-600">
