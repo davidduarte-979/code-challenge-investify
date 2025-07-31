@@ -14,17 +14,22 @@ export const Hero: React.FC = () => {
   useEffect(() => {
     let isMounted = true;
 
-    const fetchData = () => {
+    const fetchData = async () => {
       setLoading(true);
-      fetch('/api/crypto')
-        .then(res => res.json())
-        .then((response: ResponseObject<CriptoCoin[]>) => {
-          if (isMounted) {
-            setCryptoData(response.data);
-            setLoading(false);
-            setTimer(10); // Reset timer after fetch
-          }
-        });
+      try {
+        const res = await fetch('/api/crypto');
+        const response: ResponseObject<CriptoCoin[]> = await res.json();
+        if (isMounted) {
+          setCryptoData(response.data);
+          setLoading(false);
+          setTimer(10); // Reset timer after fetch
+        }
+      } catch (error) {
+        if (isMounted) {
+          setLoading(false);
+        }
+        console.log(error);
+      }
     };
 
     fetchData(); // Initial fetch
